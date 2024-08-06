@@ -9,6 +9,7 @@
 </head>
 <body>
 	<form action="reply" method="post">
+	<!-- 답변을 달 게시글의 정보를 뿌린다 bid를 가지고 가는 이유 -->
 		<input type="hidden" name="bId" value="${reply_view.bId }"> 
 		<input type="hidden" name="bGroup" value="${reply_view.bGroup }"> 
 		<input type="hidden" name="bStep" value="${reply_view.bStep }">
@@ -24,7 +25,7 @@
 			</tr>
 			<tr>
 				<td>이름</td>
-				<td><input type="text" name="bName" value="${reply_view.bId }"></td>
+				<td><input type="text" name="bName" value="${reply_view.bName }"></td>
 			</tr>
 			<tr>
 				<td>제목</td>

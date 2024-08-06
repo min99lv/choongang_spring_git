@@ -80,7 +80,7 @@ public class BController {
 
 		return "redirect:list";
 	}
-
+	// 댓글 작성
 	@RequestMapping("/reply_view")
 	public String reply_view(HttpServletRequest request, Model model) {
 		System.out.println("reply_view start...");
@@ -89,6 +89,7 @@ public class BController {
 		bExecuteService.bReplyViewCmd(model);
 		return "reply_view";
 	}
+	// 글을 작성하거나 수정할 때 -> post
 	@RequestMapping(value="/reply", method=RequestMethod.POST)
 	public String reply(HttpServletRequest request, Model model) {
 		System.out.println("reply()");

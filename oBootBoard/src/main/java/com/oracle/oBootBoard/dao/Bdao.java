@@ -16,6 +16,5 @@ public interface Bdao {
 	public void delete(String bId);
 	public BDto write(String bName, String bTitle, String bContent);
 	public BDto reply_view(String bId);
-	public BDto reply(String bId, String bName, String bTitle, String bContent, String bGroup, String bStep,
-			String bIndent);
+	public void reply(String bId, String bName, String bTitle, String bContent, int bGroup, int bStep, int bIndent);
 }

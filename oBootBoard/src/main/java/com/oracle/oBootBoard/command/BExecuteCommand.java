@@ -114,13 +114,13 @@ public class BExecuteCommand {
 		String bName = request.getParameter("bName");
 		String bTitle = request.getParameter("bTitle");
 		String bContent = request.getParameter("bContent");
-		String bGroup = request.getParameter("bGroup");
-		String bStep = request.getParameter("bStep");
-		String bIndent = request.getParameter("bIndent");
+		int bGroup = Integer.parseInt(request.getParameter("bGroup"));
+		int bStep = Integer.parseInt(request.getParameter("bStep"));
+		int bIndent = Integer.parseInt(request.getParameter("bIndent"));
 //		  3) dao  instance 선언
 //		  4) reply method 이용하여 댓글저장 
 //		    - dao.reply(bId, bName, bTitle, bContent, bGroup, bStep, bIndent);
-		BDto bDto = jdbcDao.reply(bId, bName, bTitle, bContent, bGroup, bStep, bIndent);
+		jdbcDao.reply(bId, bName, bTitle, bContent, bGroup, bStep, bIndent);
 	
 		
 		

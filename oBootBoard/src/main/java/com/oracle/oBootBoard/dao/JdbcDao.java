@@ -346,65 +346,60 @@ public class JdbcDao implements Bdao {
 	}
 
 	@Override
-	public BDto reply(String bId, String bName, String bTitle, String bContent, String bGroup, String bStep,
-			String bIndent) {
-		BDto bDto = new BDto();
+	public void reply(String bId, String bName, String bTitle, String bContent, int bGroup, int bStep, int bIndent) {
+
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
+		System.out.println("왜");
+		String sql = "insert into mvc_board values (mvc_board_seq.nextval,?,?,?,sysdate,0,?,?,?)";
 
-		String sql1 = "select nvl(max(bid),0) from mvc_board";
-		String sql2 = "insert into mvc_board(bid,bName, bTitle, bcontent, bGroup, bhit, bstep, bindent, bdate) values(mvc_board_seq.nextval,?,?,?,mvc_board_seq.currval,0,0,0,sysdate)";
+		// 답변값 로직, 홍해의 기적
+		replyShape(bGroup, bStep);
 
+		// 답변 입력
 		try {
+			System.out.println("왜1");
 			connection = getcConnection();
-			preparedStatement = connection.prepareStatement(sql1);
-			resultSet = preparedStatement.executeQuery();
-			while (resultSet.next()) {
-				bDto.setbId(resultSet.getInt(1));
-			}
-			connection.close();
-			preparedStatement.close();
-			resultSet.close();
-
-			// 답변값 로직
-			replyShape(bGroup, bStep);
-
-			// 답변 입력
-			connection = getcConnection();
-			preparedStatement = connection.prepareStatement(sql2);
-			preparedStatement.executeUpdate();
+			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, bName);
 			preparedStatement.setString(2, bTitle);
 			preparedStatement.setString(3, bContent);
+			preparedStatement.setInt(4, bGroup);
+			preparedStatement.setInt(5, bStep + 1);
+			preparedStatement.setInt(6, bIndent + 1);
+
 			preparedStatement.executeUpdate();
-			
-			
-			
+			System.out.println("왜2");
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+		} finally {
+			try {
+				if (connection != null)
+					connection.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
 		}
-
-		return bDto;
 	}
 
-	private void replyShape(String bGroup, String bStep) {
+	// private -> 같은 dao로직 안에서만 사용할 때는 public으로 공개하지 않는다.
+	private void replyShape(int bGroup, int bStep) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String sql = "update mvc_borad set bStep = bStep+1, where bGroup=? and bStep > ?";
-
+		ResultSet resultSet = null;
+		String sql1 = "UPDATE mvc_board SET bStep = bStep + 1 WHERE bGroup = ? AND bStep > ?";
+		System.out.println("왜3");
 		try {
-			BDto bDto = new BDto();
 			connection = getcConnection();
-			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, bGroup);
-			preparedStatement.setString(2, bStep);
+			preparedStatement = connection.prepareStatement(sql1);
+			preparedStatement.setInt(1, bGroup);
+			preparedStatement.setInt(2, bStep);
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
@@ -413,11 +408,8 @@ public class JdbcDao implements Bdao {
 				if (connection != null)
 					connection.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-
 	}
-
 }

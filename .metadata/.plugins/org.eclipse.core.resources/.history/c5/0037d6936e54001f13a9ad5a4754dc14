@@ -1,0 +1,12 @@
+package com.oracle.oBootJpaApi01.domain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Entity
+@Data
+@Table
+public class Member {
+
+}

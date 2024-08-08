@@ -1,0 +1,21 @@
+server:
+  port: 8387
+# Oracle Connect
+spring:
+  datasource:
+   driver-class-name: oracle.jdbc.driver.OracleDriver
+   url: jdbc:oracle:thin:@localhost:1521/xe
+   username: scottJpa
+   password: 1234
+  
+  # jpa Setting
+  jpa:
+   show-sql: true
+   hibernate:
+    ddl-auto: create
+  
+  # View Resolver
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp 

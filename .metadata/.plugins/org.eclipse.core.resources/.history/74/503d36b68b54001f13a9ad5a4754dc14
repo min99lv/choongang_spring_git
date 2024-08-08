@@ -1,0 +1,66 @@
+package com.oracle.oBootJpaApi01.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.oracle.oBootJpaApi01.domain.Member;
+import com.oracle.oBootJpaApi01.service.MemberService;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+// Controller + ResponsBody
+@RestController
+@Slf4j
+// private static final Logger logger = LoggerFactory.getLogger(JpaReatApiController.class)
+@RequiredArgsConstructor
+public class JpaRestApiController {
+	private final MemberService memberService;
+
+	// test용도
+	@RequestMapping("/helloText")
+	public String helloText() {
+		System.out.println("JpaRestApiController start...");
+		String hello = "안녕";
+		return hello;
+	}
+
+	// Bad ApI
+	@GetMapping("/restApi/v1/members")
+	public List<Member> membersVer1() {
+		System.out.println("JpaRestApiController /restApi/v1/members start..");
+		List<Member> listMember = memberService.getListAllMember();
+		System.out.println("JpaRestApiController /restApi/v1/members listMember.size()::   " + listMember.size());
+		return listMember;
+	}
+
+	// Good API Easy Version
+	// 목표 : 이름 & 급여만 전송
+	@GetMapping("/restApi/v21/members")
+	public Result membersVer21() {
+		List<Member> listMember = memberService.getListAllMember();
+		System.out.println("JpaRestApiController /restApi/v21/members listMember.size()::   "+listMember.size());
+		List<MemberRtnDto> resultList = new ArrayList<MemberRtnDto>();
+	}
+
+	@Data
+	@AllArgsConstructor
+	class Result<T> {
+		private final int totCount; // 총 인원 수 추가
+		private final T data;
+	}
+
+	@Data
+	@AllArgsConstructor
+	class MemberRtnDto {
+		private String name;
+		private Long sal;
+	}
+
+}

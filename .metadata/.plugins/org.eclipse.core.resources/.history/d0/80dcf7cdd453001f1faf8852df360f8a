@@ -1,0 +1,18 @@
+package com.oracle.studyJpa2.service;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.oracle.studyJpa2.repository.MemberRepository;
+
+@Service
+@Transactional
+public class MemberService {
+	private final MemberRepository memberRepository;
+	
+	public MemberService(MemberRepository memberRepository) {
+		this.memberRepository = memberRepository;
+	}
+	
+
+}

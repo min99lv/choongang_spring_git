@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=oBootHello/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.oracle.oBootHello.repository{MemberRepository.java[MemberRepository" modifiers="513" timestamp="1722390531891"/>
+    <typeInfo handle="=oBootDbConnnect/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.oracle.oBootDbConnnect.repository{MemberRepository.java[MemberRepository" modifiers="513" timestamp="1722397540734"/>
+    <typeInfo handle="=oBootBoard/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.oracle.oBootBoard.dao{Bdao.java[Bdao" modifiers="513" timestamp="1722818027585"/>
+    <typeInfo handle="=oBootJpa01/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.oracle.oBootJpa01.repository{MemberRepository.java[MemberRepository" modifiers="513" timestamp="1722829153773"/>
+    <typeInfo handle="=oBootJpa01/C:\/Users\/admin\/.gradle\/caches\/modules-2\/files-2.1\/org.aspectj\/aspectjweaver\/1.9.22.1\/bca243d0af0db4758fbae45c5f4995cb5dabb612\/aspectjweaver-1.9.22.1.jar=/gradle_used_by_scope=/main,test=/&lt;org.aspectj.weaver(Member.class[Member" modifiers="1537" timestamp="1722826249711"/>
+    <typeInfo handle="=oBootJpa02/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.oracle.oBootJpa02.repository{MemberRepository.java[MemberRepository" modifiers="513" timestamp="1722997200679"/>
+    <typeInfo handle="=oBootJpa02/C:\/Users\/admin\/.gradle\/caches\/modules-2\/files-2.1\/org.mockito\/mockito-core\/5.11.0\/e4069fa4f4ff2c94322cfec5f2e45341c6c70aff\/mockito-core-5.11.0.jar=/gradle_used_by_scope=/test=/=/test=/true=/&lt;org.mockito.plugins(MemberAccessor.class[MemberAccessor" modifiers="1537" timestamp="1722307810340"/>
+    <typeInfo handle="=oBootJpaApi01/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.oracle.oBootJpaApi01.repository{MemberRepository.java[MemberRepository" modifiers="513" timestamp="1723008078811"/>
+</typeInfoHistroy>

@@ -1,0 +1,22 @@
+package com.oracle.oBootMybatis01.model;
+
+import java.util.Date;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+public class Emp {
+	private int empno;
+	private String ename;
+	private String job;
+	private int mgr;
+	private Date hiredate;
+	private int sal;
+	private int comm;
+	private int deptno;
+
+}

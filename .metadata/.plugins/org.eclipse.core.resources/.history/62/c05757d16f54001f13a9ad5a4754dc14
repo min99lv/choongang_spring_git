@@ -1,0 +1,13 @@
+package com.oracle.oBootJpaApi01.domain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Entity
+@Data
+@Table(name = "team5")
+public class Team {
+	private Long teamId;
+	private String name;
+}

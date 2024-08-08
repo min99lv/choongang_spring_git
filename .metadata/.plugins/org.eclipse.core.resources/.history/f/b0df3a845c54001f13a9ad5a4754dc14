@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>JPA2 회원조회</h1>
+	<div class="nav">
+		<form action="/members/search" method="get">
+			회원 검색 이름 : <input type="text" name="name"
+				placeholder="회원검색 이름을 입력하세요">
+			<button type="submit"></button><p>
+		</form>
+	</div>
+	<div class="container">
+		<div>
+			<table bgcolor="pink">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>회원이름</th>
+						<th>팀 이름</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="member : ${memberList}">
+						<td th:text="${member.id}"></td>
+						<td><a th:href="@{/memberModifyForm(id=${member.id})}"
+							th:text="${member.name}"></a></td>
+						<td th:text="${member.team.name}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

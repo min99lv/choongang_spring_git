@@ -1,0 +1,34 @@
+package com.oracle.oBootJpa02.repository;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.oracle.oBootJpa02.domain.Member;
+
+import jakarta.persistence.EntityManager;
+
+@Repository
+public class JpaMemberRepository implements MemberRepository {
+
+	private final EntityManager em;
+	
+	@Autowired
+	public JpaMemberRepository(EntityManager em) {
+		this.em = em;
+	}
+	
+	@Override
+	public Member memberSave(Member member) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Member> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

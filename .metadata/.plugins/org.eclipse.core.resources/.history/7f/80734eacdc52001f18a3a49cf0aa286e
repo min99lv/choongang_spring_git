@@ -1,0 +1,27 @@
+package com.oracle.oBootJpa01.repository;
+
+import java.util.List;
+
+import com.oracle.oBootJpa01.domain.Member;
+
+public class JpaMemberRepository implements MemberRepository {
+
+	@Override
+	public Member memberSave(Member member) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Member> findAllMember() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Member> findByNames(String searchName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

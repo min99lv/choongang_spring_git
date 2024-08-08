@@ -1,0 +1,5 @@
+package com.oracle.studyJpa2.service;
+
+public class MemberService {
+
+}

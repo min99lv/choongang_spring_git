@@ -1,0 +1,11 @@
+package com.oracle.oBootMybatis01.dao;
+
+public class EmpDaoImpl implements EmpDao {
+
+	@Override
+	public int totalEmp() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

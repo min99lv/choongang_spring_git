@@ -1,0 +1,17 @@
+INDEX VERSION 1.134
+C:\spring\springSrc17\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2993470058.index
+\oBootBoardWarPom\src\main\java
+C:\spring\springSrc17\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1133399363.index
+\oBootBoardPorm\src\main\java
+C:\spring\springSrc17\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2551715495.index
+\oBootMybatis01\src\main\java
+C:\spring\springSrc17\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3533041713.index
+\oBootBoardPorm\src\main\java
+C:\spring\springSrc17\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2590056867.index
+\oBootBoardWarPom\src\main\java
+C:\spring\springSrc17\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\921450290.index
+\oBootBoardPorm\src\main\java
+C:\spring\springSrc17\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3543681383.index
+\oBootBoardPorm\src\main\java
+C:\spring\springSrc17\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1112154694.index
+\oBootBoard\src\main\java

@@ -38,6 +38,9 @@ public class Member {
 	@ManyToOne
 	@JoinColumn(name = "team_id") // 어떤 fk?
 	private Team team;
+	// 실제 컬럼 X buffer 용도
 	@Transient // 테이블로는 만들어지지 않지만 버퍼로 사용가능함 -> 컬럼 생성이 안됨
 	private String teamname; // 팀 이름................
+	@Transient 
+	private Long teamid;
 }

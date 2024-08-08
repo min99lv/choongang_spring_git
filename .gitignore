@@ -1,6 +1,3 @@
 .idea/
-.metadata/
 bin/
 target/
-*.class
-Servers/

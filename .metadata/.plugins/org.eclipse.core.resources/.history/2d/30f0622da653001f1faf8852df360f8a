@@ -1,0 +1,142 @@
+package com.oracle.oBootJpa02.repository;
+
+import java.util.Collection;
+
+import org.aspectj.weaver.AnnotationAJ;
+import org.aspectj.weaver.JoinPointSignatureIterator;
+import org.aspectj.weaver.Member;
+import org.aspectj.weaver.MemberKind;
+import org.aspectj.weaver.ResolvedMember;
+import org.aspectj.weaver.ResolvedType;
+import org.aspectj.weaver.UnresolvedType;
+import org.aspectj.weaver.World;
+
+public class JpaMemberRepository implements Member {
+
+	@Override
+	public MemberKind getKind() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UnresolvedType getDeclaringType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UnresolvedType[] getParameterTypes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UnresolvedType[] getGenericParameterTypes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UnresolvedType getType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UnresolvedType getReturnType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UnresolvedType getGenericReturnType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSignature() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public JoinPointSignatureIterator getJoinPointSignatures(World world) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getArity() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getParameterSignature() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getModifiers(World world) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getModifiers() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean canBeParameterized() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public AnnotationAJ[] getAnnotations() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Collection<ResolvedType> getDeclaringTypes(World world) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] getParameterNames(World world) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UnresolvedType[] getExceptions(World world) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResolvedMember resolve(World world) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int compareTo(Member other) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

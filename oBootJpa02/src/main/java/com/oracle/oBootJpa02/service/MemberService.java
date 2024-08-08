@@ -18,31 +18,45 @@ public class MemberService {
 	public MemberService(MemberRepository memberRepository) {
 		this.memberRepository = memberRepository;
 	}
+
 	// 회원 가입
 	public Member memberSave(Member member) {
 		System.out.println("MemberService join member....>>" + member);
 		memberRepository.memberSave(member);
 		return member;
 	}
+
 	// 회원 조회
 	public List<Member> getListAllMember() {
 		List<Member> listMember = memberRepository.findAll();
 		System.out.println("MemberService getListAllMember listMember.size()" + listMember.size());
 		return listMember;
 	}
+
 	// 회원 검색
 	public Member findByMember(Long memberId) {
 		Member member1 = memberRepository.findByMember(memberId);
 		System.out.println("MemberService findByMember member1....>>" + member1);
 		return member1;
 	}
+
 	public void memberUpdate(Member member) {
-		System.out.println("MemberService memberUpdate member>>>>>>>>"+member);
+		System.out.println("MemberService memberUpdate member>>>>>>>>" + member);
 		memberRepository.updateByMember(member);
 		System.out.println("MemberService memberUpdate memberRepository.updateByMember after....");
 		return;
-		
-		
-		
+	}
+
+	public List<Member> getListSearchMember(String searchName) {
+		List<Member> listMember = memberRepository.findByNames(searchName);
+		System.out.println("서비스는 실행됨--!!!!!!");
+		return listMember;
+	}
+
+	public List<Member> getListFindByMembers(Member member) {
+		List<Member> listMember = memberRepository.findByIdSal(member);
+		System.out.println("서비스는 실행이 되었단다");
+
+		return listMember;
 	}
 }

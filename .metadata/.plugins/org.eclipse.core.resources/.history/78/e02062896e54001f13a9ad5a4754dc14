@@ -1,0 +1,5 @@
+package com.oracle.oBootJpaApi01.domain;
+
+public class Team {
+
+}

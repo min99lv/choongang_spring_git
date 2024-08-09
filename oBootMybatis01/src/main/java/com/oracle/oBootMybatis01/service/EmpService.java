@@ -7,5 +7,9 @@ import com.oracle.oBootMybatis01.model.Emp;
 public interface EmpService {
 	int totalEmp();
 
-	List<Emp> empList(Emp emp);
+	List<Emp> listEmp(Emp emp);
+
+	Emp detailEmp(int empno);
+
+	int updateEmp(Emp emp);
 }

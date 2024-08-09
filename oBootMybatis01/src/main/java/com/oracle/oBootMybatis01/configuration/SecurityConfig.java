@@ -14,13 +14,23 @@ public class SecurityConfig { // 패스워드를 암호화.
 		 return new BCryptPasswordEncoder();
 	 }
 	
+//	@Bean
+//	protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//		http.authorizeRequests()
+//			.anyRequest() 	// 어떤 요청
+//			.permitAll() 	// 모든것을 허용
+//		;
+//		
+//		return http.build(); // http가 어떤 요구라도 허용을 해주겠다.
+//	}
 	@Bean
 	protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-			.anyRequest() 	// 어떤 요청
-			.permitAll() 	// 모든것을 허용
-		;
+			http
+			.cors(cors -> cors.disable())
+			.csrf(csrf -> csrf.disable());
 		
 		return http.build(); // http가 어떤 요구라도 허용을 해주겠다.
 	}
+	
+
 }

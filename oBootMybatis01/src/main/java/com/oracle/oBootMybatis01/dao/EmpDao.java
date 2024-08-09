@@ -8,6 +8,11 @@ import com.oracle.oBootMybatis01.model.Emp;
 public interface EmpDao {
 		int totalEmp();
 
-		List<Emp> listEmpDao(Emp emp);
+		List<Emp> listEmp(Emp emp);
+
+		Emp detailEmp(int empno);
+
+		int updateEmp(Emp emp);
+
 		
 }

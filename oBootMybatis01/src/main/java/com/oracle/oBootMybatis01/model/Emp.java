@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Emp {
 	private int empno;
-	@NotEmpty(message = "이름은 필수 입니다 !!") // jsp에서 메세지를 받음
+	@NotEmpty(message = "이름은 필수 입니다 !!") // jsp에서 메세지를 받음 writeFormEmp3.jsp
 	private String ename;
 	private String job;
 	private int mgr;

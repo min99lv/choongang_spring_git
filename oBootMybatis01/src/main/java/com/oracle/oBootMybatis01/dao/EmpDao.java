@@ -14,5 +14,15 @@ public interface EmpDao {
 
 		int updateEmp(Emp emp);
 
+		List<Emp> listManager();
+
+		int insertEmp(Emp emp);
+
+		int deleteEmp(int empno);
+
+		int condTotalEmp(Emp emp);
+
+		List<Emp> listSearchEmp(Emp emp);
+
 		
 }

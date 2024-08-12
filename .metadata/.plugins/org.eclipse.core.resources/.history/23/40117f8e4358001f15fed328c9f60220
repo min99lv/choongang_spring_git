@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+body {	font-family: pretendard; text-align: center;	}
+table { border: 1px solid pink; width: 100%; 
+         }
+tr { height: 30px; background:	#EA6FD5; }
+/* th {	background: #C9BFED;	} */
+th {	background:#FF82FF;	}
+td {	background: 	#FFBEFF;	}

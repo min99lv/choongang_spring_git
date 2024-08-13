@@ -1,5 +1,6 @@
 package com.oracle.oBootMybatis01.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -7,7 +8,9 @@ import org.springframework.stereotype.Service;
 import com.oracle.oBootMybatis01.dao.DeptDao;
 import com.oracle.oBootMybatis01.dao.EmpDao;
 import com.oracle.oBootMybatis01.model.Dept;
+import com.oracle.oBootMybatis01.model.DeptVO;
 import com.oracle.oBootMybatis01.model.Emp;
+import com.oracle.oBootMybatis01.model.EmpDept;
 
 import lombok.RequiredArgsConstructor;
 
@@ -112,5 +115,30 @@ public class EmpServiceImpl implements EmpService {
 
 		return listSearchEmp;
 	}
+	// 부서 정보 
+	@Override
+	public List<EmpDept> listEmpDept() {
+		System.out.println("EmpService listEmpDept start...");
+		List<EmpDept> listEmpDept = null;
+		listEmpDept = ed.listEmpDept();
+		System.out.println("EmpService listEmpDept listEmpDept.size()::    " + listEmpDept.size());
+		return listEmpDept;
+	}
+
+	@Override
+	public void insertDept(DeptVO deptVO) {
+		System.out.println("EmpServiceImpl insertDept start...");
+		dd.insertDept(deptVO);
+		
+	}
+
+	@Override
+	public void selListDept(HashMap<String, Object> map) {
+		System.out.println("EmpServiceImpl selListDept start...");
+		dd.selListDept(map);
+		
+		
+	}
+	
 
 }

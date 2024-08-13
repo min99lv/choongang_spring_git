@@ -20,8 +20,24 @@ spring:
       prefix: /WEB-INF/views/
       suffix: .jsp
       
+      
+  # gmail Transfer
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: fantamasitta@gmail.com
+    password: tuom qyys xkmm mrmv
+    properties:
+     mail:
+      smtp:
+        auth: true
+        starttls.enable: true  
+     
+      
+      
 # Mybatis  
 mybatis:        # classpath : resource
   config-location: classpath:configuration.xml
   mapper-locations: classpath:mappers/*.xml #mappers폴더안에 어떠한 xml이든 허용하겠다
-     
+ 
+        

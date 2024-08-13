@@ -1,5 +1,0 @@
-package com.oracle.oBootJpa01.repository;
-
-public MemberRepository {
-
-}

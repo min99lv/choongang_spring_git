@@ -1,7 +1,11 @@
 package com.oracle.oBootMybatis01.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,10 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.oracle.oBootMybatis01.model.Dept;
+import com.oracle.oBootMybatis01.model.DeptVO;
 import com.oracle.oBootMybatis01.model.Emp;
+import com.oracle.oBootMybatis01.model.EmpDept;
 import com.oracle.oBootMybatis01.service.EmpService;
 import com.oracle.oBootMybatis01.service.Paging;
 
+import jakarta.mail.internet.MimeMessage;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +33,7 @@ import lombok.extern.slf4j.Slf4j;
 public class EmpController {
 
 	private final EmpService es;
+	private final JavaMailSender mailSender;
 
 	@RequestMapping(value = "listEmpStart")
 	public String listEmpStart(Emp emp, Model model) {
@@ -200,7 +209,7 @@ public class EmpController {
 			return "forward:writeFormEmp3";
 		}
 		int insertResult = es.insertEmp(emp);
-		
+
 		if (insertResult > 0) {
 			return "redirect:listEmp";
 		} else {
@@ -250,16 +259,103 @@ public class EmpController {
 		emp.setStart(page.getStart());
 		emp.setEnd(page.getEnd());
 		System.out.println("컨트롤러 페이지 :   " + page);
-		// 1. DAO  ed.empSearchList3(emp);
-        // 2. Mapper selectList("tkEmpSearchList3", emp);
+		// 1. DAO ed.empSearchList3(emp);
+		// 2. Mapper selectList("tkEmpSearchList3", emp);
 
 		List<Emp> listSearchEmp = es.listSearchEmp(emp);
-		System.out.println("empConroller listSearch3 listSearchEmp,size()::    "+listSearchEmp.size());
+		System.out.println("empConroller listSearch3 listSearchEmp,size()::    " + listSearchEmp.size());
 		model.addAttribute("totalEmp", totalEmp);
-		model.addAttribute("listEmp",listSearchEmp);
+		model.addAttribute("listEmp", listSearchEmp);
 		model.addAttribute("page", page);
 
 		return "list";
+	}
+	// 부서 정보
+
+	@GetMapping(value = "listEmpDept")
+	public String listEmpDept(Model model) {
+		System.out.println("EmpController listEmpDept start..");
+		// Service ,DAO -> listEmpDept
+		// Mapper만 ->EmpDept.xml(tkListEmpDept)
+		List<EmpDept> listEmpDept = es.listEmpDept();
+		model.addAttribute("listEmpDept", listEmpDept);
+		return "listEmpDept";
+	}
+
+	@RequestMapping(value = "mailTransport")
+	public String mailTransport(HttpServletRequest request, Model model) {
+		System.out.println("mailSending");
+		String tomail = "wjddksidsid@gmail.com"; // 받는 사람 이메일
+		String setfrom = "fantamasitta@gmail.com";
+		String title = "mailTransport 입니다"; // 제목
+
+		try {
+			// Mime 전자우편 Internet 표준 Format
+			MimeMessage message = mailSender.createMimeMessage();
+			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
+			messageHelper.setFrom(setfrom); // 보내는 사람 생량하거나 하면 정상작동을 안함
+			messageHelper.setTo(tomail); // 받는 사람 이메일
+			messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
+			String tempPassword = (int) (Math.random() * 999999) + 1 + ""; // 메일내용
+			messageHelper.setText("임시비밀번호 입니다" + tempPassword);
+			System.out.println("임시 비밀번호 입니다 " + tempPassword);
+
+			mailSender.send(message);
+			model.addAttribute("check", 1); // 정상전달
+
+			// DB Logic
+
+		} catch (Exception e) {
+			System.out.println("MailTranport e.getMessage" + e.getMessage());
+			model.addAttribute("check", 2);
+		}
+		return "mailResult";
+	}
+
+	// pl/sql
+	// Procedure Test 입력화면
+	@RequestMapping(value = "writeDeptIn")
+	public String writeDeptIn(Model model) {
+		System.out.println("writeDeptIn Start");
+		return "writeDept3";
+	}
+
+	// Procedure 통한 Dept 입력후 VO 전달
+	@PostMapping(value = "writeDept")
+	public String writeDept(DeptVO deptVO, Model model) {
+		es.insertDept(deptVO);
+		if (deptVO == null) {
+			System.out.println("deptVo NULL");
+
+		} else {
+			System.out.println("deptVO.getOdeptno()::  " + deptVO.getOdeptno());
+			System.out.println("deptVO.getOdname()::  " + deptVO.getOdname());
+			System.out.println("deptVO.getOloc()::  " + deptVO.getOloc());
+			model.addAttribute("msg", "정상 입력 되었습니다");
+			model.addAttribute("dept", deptVO);
+		}
+		return "writeDept3";
+	}
+	// pl / sql 
+	// 부서 조회
+	@GetMapping(value = "writeDeptCursor")
+	public String writeDeptCursor(Model model) {
+		System.out.println("EmpController writeDeptCursor Start..");
+		// 부서 범위 조회
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("sDeptno", 10);
+		map.put("eDeptno", 55);
+
+		es.selListDept(map);
+		List<Dept> deptLists = (List<Dept>) map.get("dept");
+		for (Dept dept : deptLists) {
+			System.out.println("dept.getDname::...." + dept.getDname());
+			System.out.println("dept.getDLoc::...." + dept.getLoc());
+		}
+		System.out.println("deptLists.size()" + deptLists.size());
+		model.addAttribute("deptLists", deptLists);
+
+		return "writeDeptCursor";
 	}
 
 }

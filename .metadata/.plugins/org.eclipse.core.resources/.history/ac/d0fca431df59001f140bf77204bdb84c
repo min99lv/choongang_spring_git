@@ -1,0 +1,24 @@
+package com.oracle.oBootMybatis01.service;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.oracle.oBootMybatis01.domain.Member;
+import com.oracle.oBootMybatis01.repository.MemberJpaRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+@Transactional
+public class MemberJpaService {
+	private final MemberJpaRepository memberJpaRepository;
+
+	public void join(Member member) {
+		System.out.println("MemberJpaService join");
+		member
+	}
+
+
+}
+

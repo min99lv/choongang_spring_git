@@ -1,0 +1,5 @@
+package com.oracle.oBootMybatis01.configuration;
+
+public class WebMvcConfigurer implements org.springframework.web.servlet.config.annotation.WebMvcConfigurer {
+
+}

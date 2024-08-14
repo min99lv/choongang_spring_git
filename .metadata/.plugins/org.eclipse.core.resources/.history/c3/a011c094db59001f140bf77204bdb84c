@@ -1,0 +1,34 @@
+package com.oracle.oBootMybatis01.repository;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.oracle.oBootMybatis01.domain.Member;
+
+public class MemberJpaRepositoryImpl implements MemberJpaRepository {
+
+	@Override
+	public Member save(Member member) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Member> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Member> findById(Long memberId) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public void updateByMemeber(Member member) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

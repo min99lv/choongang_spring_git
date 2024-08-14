@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.oracle.oBootMybatis01.dao.DeptDao;
 import com.oracle.oBootMybatis01.dao.EmpDao;
+import com.oracle.oBootMybatis01.dao.Member1Dao;
 import com.oracle.oBootMybatis01.model.Dept;
 import com.oracle.oBootMybatis01.model.DeptVO;
 import com.oracle.oBootMybatis01.model.Emp;
 import com.oracle.oBootMybatis01.model.EmpDept;
+import com.oracle.oBootMybatis01.model.Member1;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,6 +22,7 @@ public class EmpServiceImpl implements EmpService {
 
 	private final EmpDao ed;
 	private final DeptDao dd;
+	private final Member1Dao md;
 	// dao를 여러개 선언 가능 -> interface를 하나만 상속 받아야함
 
 	@Override
@@ -115,7 +118,8 @@ public class EmpServiceImpl implements EmpService {
 
 		return listSearchEmp;
 	}
-	// 부서 정보 
+
+	// 부서 정보
 	@Override
 	public List<EmpDept> listEmpDept() {
 		System.out.println("EmpService listEmpDept start...");
@@ -129,16 +133,26 @@ public class EmpServiceImpl implements EmpService {
 	public void insertDept(DeptVO deptVO) {
 		System.out.println("EmpServiceImpl insertDept start...");
 		dd.insertDept(deptVO);
-		
+
 	}
 
 	@Override
 	public void selListDept(HashMap<String, Object> map) {
 		System.out.println("EmpServiceImpl selListDept start...");
 		dd.selListDept(map);
-		
-		
+
 	}
-	
+
+	@Override
+	public int memCount(String id) {
+		System.out.println("EmpServiceImpl memCount id->" + id);
+		return md.memCount(id);
+	}
+
+	@Override
+	public List<Member1> listMem(Member1 member1) {
+		List<Member1> listMem = md.listMem(member1);
+		return listMem;
+	}
 
 }

@@ -48,6 +48,7 @@ public class JpaMemberRepository implements MemberRepository {
 
 		return member;
 	}
+	
 	// 회원 수정
 	@Override
 	public int updateByMember(Member member) {

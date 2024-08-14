@@ -1,0 +1,11 @@
+package com.oracle.oBootMybatis01.dao;
+
+public class Member1DaoImpl implements Member1Dao {
+
+	@Override
+	public int memCount(String id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

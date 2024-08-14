@@ -1,0 +1,39 @@
+package com.oracle.oBootMybatis01.service;
+
+import java.lang.reflect.Method;
+import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class SampleInterceptor implements HandlerInterceptor {
+	public SampleInterceptor() {
+
+	}
+
+	// 3번
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			// model과 veiw 같이 쓰여지는 객체
+			ModelAndView modelAndView) throws Exception {
+
+		HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
+	}
+
+	// 1번 젤 먼저 수행됨
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+
+		System.out.println("Pre handler......................");
+		HandlerMethod method = (HandlerMethod) handler;
+		Method methodObj = method.getMethod();
+		System.out.println("Bean :" + method.getBean());
+		System.out.println("Mehod :" + methodObj);
+
+		return true;
+
+	}
+
+}

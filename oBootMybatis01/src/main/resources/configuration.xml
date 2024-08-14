@@ -11,5 +11,7 @@
 			type="com.oracle.oBootMybatis01.model.EmpDept" />
 		<typeAlias alias="DeptVO"
 			type="com.oracle.oBootMybatis01.model.DeptVO" />
+		<typeAlias alias="Member1"
+			type="com.oracle.oBootMybatis01.model.Member1" />
 	</typeAliases>
 </configuration>

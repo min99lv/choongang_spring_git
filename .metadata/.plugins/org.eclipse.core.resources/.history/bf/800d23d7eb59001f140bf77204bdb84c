@@ -1,0 +1,47 @@
+package com.oracle.oBootMybatis01.repository;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.domain.Persistable;
+import org.springframework.stereotype.Repository;
+
+import com.oracle.oBootMybatis01.domain.Member;
+
+import jakarta.persistence.EntityManager;
+import lombok.RequiredArgsConstructor;
+import oracle.net.aso.m;
+
+@Repository
+@RequiredArgsConstructor
+public class MemberJpaRepositoryImpl implements MemberJpaRepository {
+
+	private final EntityManager em;
+
+	@Override
+	public Member save(Member member) {
+		System.out.println("MemberJpaRepositoryImpl save start...");
+		em.persist(member);
+		return member;
+	}
+
+	@Override
+	public List<Member> findAll() {
+		System.out.println("MemberJpaRepositoryImpl findAll start.....");
+		List<Member> memberList = em.createQuery("select m from Member m", Member.class).getResultList();
+		return memberList;
+	}
+
+	@Override
+	public Optional<Member> findById(Long memberId) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public void updateByMemeber(Member member) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

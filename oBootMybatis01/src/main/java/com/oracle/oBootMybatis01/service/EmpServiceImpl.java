@@ -3,6 +3,7 @@ package com.oracle.oBootMybatis01.service;
 import java.util.HashMap;
 import java.util.List;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.stereotype.Service;
 
 import com.oracle.oBootMybatis01.dao.DeptDao;
@@ -153,6 +154,14 @@ public class EmpServiceImpl implements EmpService {
 	public List<Member1> listMem(Member1 member1) {
 		List<Member1> listMem = md.listMem(member1);
 		return listMem;
+	}
+
+	// ajax dname 가져오기
+	@Override
+	public String deptName(int deptno) {
+		System.out.println("EmpServiceImpl deptName start....");
+		String deptName = ed.EmpDept(deptno);
+		return deptName;
 	}
 
 }

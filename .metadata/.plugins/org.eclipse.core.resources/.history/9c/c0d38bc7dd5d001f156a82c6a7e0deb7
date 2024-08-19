@@ -1,0 +1,13 @@
+package com.oracle.oBootMybatis01.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.oracle.oBootMybatis01.service.EmpService;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
+public class EmpRestController {
+	private final EmpService es;
+}

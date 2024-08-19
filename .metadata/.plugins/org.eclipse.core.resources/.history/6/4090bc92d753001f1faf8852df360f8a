@@ -1,5 +1,0 @@
-package com.oracle.studyJpa2.controller;
-
-public class JpaMemberRepository {
-
-}

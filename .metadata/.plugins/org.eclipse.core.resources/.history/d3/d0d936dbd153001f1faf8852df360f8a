@@ -1,5 +1,0 @@
-package com.oracle.studyJpa2.repository;
-
-public class MemberRepository {
-
-}

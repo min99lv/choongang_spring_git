@@ -134,7 +134,7 @@ public class EmpDaoImpl implements EmpDao {
 		List<Emp> listSearchEmp = session.selectList("tkEmpSearchList3", emp);
 		return listSearchEmp;
 	}
-	
+
 	// 부서 정보
 	@Override
 	public List<EmpDept> listEmpDept() {
@@ -143,6 +143,22 @@ public class EmpDaoImpl implements EmpDao {
 		listEmpDept = session.selectList("tkListEmpDept");
 		System.out.println("EmpDaoImpl listEmpDept listEmpDept.size()" + listEmpDept.size());
 		return listEmpDept;
+	}
+
+	// ajax를 이용해서 dname 가져오기
+	@Override
+	public String EmpDept(int deptno) {
+		System.out.println("EmpDaoImpl EmpDept start....");
+		String deptName = "";
+		try {
+			System.out.println("EmpDaoImpl EmpDept deptno__:" + deptno);
+			deptName = session.selectOne("tkDeptName", deptno);
+			System.out.println("EmpDaoImpl EmpDept deptName__:" + deptName);
+
+		} catch (Exception e) {
+			System.out.println("EmpDaoImpl EmpDept Exception" + e.getMessage());
+		}
+		return deptName;
 	}
 
 }

@@ -9,8 +9,8 @@
 <body>
 <h1>다양한 ajax Test</h1>
 <a href="/helloText">helloText</a><p>
-<a href="/sample/sendV02?deptno=123">sample/sendV02(객체)</a><p>
-<a href="/sendV03">sendV03</a><p>
+<a href="/sample/sendVO2?deptno=123">sample/sendV02(객체)</a><p>
+<a href="/sendVO3">sendV03</a><p>
 <a href="/getDeptName?deptno=10">getDeptName(EmpController)</a><p>
 <a href="/listEmpAjaxForm">listEmpAjaxForm(ajax JSP 연동)</a><p>
 <a href="/listEmpAjaxForm2">listEmpAjaxForm2(ajax JSP 객체리스트 get)</a><p>

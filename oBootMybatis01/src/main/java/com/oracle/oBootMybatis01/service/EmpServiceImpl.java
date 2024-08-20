@@ -164,4 +164,13 @@ public class EmpServiceImpl implements EmpService {
 		return deptName;
 	}
 
+	//Transaction 처리 - mybatis
+	@Override
+	public int transactionInsertUpdate() {
+		System.out.println("EmpServiceImpl transactionInsertUpdate start..");
+		
+		//return md.transactionInsertUpdate(); // 트랜잭션이 안되는 경우
+		return md.transactionInsertUpdate3(); // 트랜잭션이 되는 경우
+	}
+
 }

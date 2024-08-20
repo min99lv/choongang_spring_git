@@ -19,6 +19,7 @@
 		{
 			url:"<%=request.getContextPath()%>/getDeptName",
 			data: {deptno:pDeptno},
+			//data : {deptno: pdeptno, dname:pDname}
 			dataType : 'text',
 			success: function(deptName){
 				// alert("success ajax data->"+deptName)

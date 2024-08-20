@@ -15,4 +15,18 @@
 		select *
 		from member1
 	</select>
+	<!-- transation 처리  name null O -->
+	<insert id="insertMember3" parameterType="Member1">
+		Insert into Member1(id, password, name) values (#{id},
+														#{password},
+														#{name}
+														)
+	</insert>
+	<!-- transation 처리 name null X -->
+	<insert id="insertMember1" parameterType="Member1">
+		Insert into Member1(id, password, name) values (#{id},
+														#{password},
+														#{name,jdbcType=VARCHAR}
+														)
+	</insert>
 </mapper>

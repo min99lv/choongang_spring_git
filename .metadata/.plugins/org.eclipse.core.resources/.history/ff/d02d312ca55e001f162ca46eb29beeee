@@ -1,0 +1,68 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="header.jsp"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	function getEmpListUpdate() {
+		alert("getEmpListUpdateTest RUN....")
+		// group번호 가져오기
+		var arr = new Array();
+		var item;
+		
+		<c:forEach items="${listEmp}" var="item">
+		arr.push({
+			empno:${item.empno}
+			,ename:${item.ename}
+			,deptno:${item.deptno}
+		});
+		</c:forEach>
+		
+		for(var i = 0; i<arr.length){
+			alert("arr.empno->"+i+":"+arr[i].empno);
+			alert("arr.ename->"+i+":"+arr[i].ename);
+			i++;
+			if(i>2) return;
+		}
+	}
+</script>
+</head>
+<body>
+	<h2>회원 정보3</h2>
+	<table id="empList">
+		<tr>
+			<th>번호</th>
+			<th>사번</th>
+			<th>이름</th>
+			<th>업무</th>
+			<th>부서</th>
+		</tr>
+		<c:forEach var="emp" items="${listEmp}" varStatus="status">
+			<tr id="empListRow">
+				<td>emp${status.index}</td>
+
+				<td><input type="hidden" class="deptno" id="deptno"
+					name="deptno" value="${emp.deptno }"> <input type="text"
+					class="empno" id="empno" name="empno" value="${emp.empno }">${emp.empno }</td>
+				<td><input type="text" class="ename" id="ename" name="ename"
+					value="${emp.ename }">${emp.ename }</td>
+				<td>${emp.job }</td>
+				<td>${emp.deptno }</td>
+			</tr>
+
+		</c:forEach>
+	</table>
+	RestController LISTVO3:
+	<input type="button" id="btn_Dept3" value="empLISTTest 전송 "
+		onclick="getEmpListUpdateTest()">
+	<p>
+		RestController LISTVO3: <input type="button" id="btn_Dept3"
+			value="empLIST 전송 " onclick="getEmpListUpdate()">
+	<p>
+	<h1>The End</h1>
+</body>
+</html>

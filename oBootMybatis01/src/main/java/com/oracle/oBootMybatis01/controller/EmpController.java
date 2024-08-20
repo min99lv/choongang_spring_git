@@ -437,14 +437,12 @@ public class EmpController {
 		emp.setEnd(10); // 시작시 10
 
 		List<Emp> listEmp = es.listEmp(emp);
-		System.out.println("EmpController listEmpAjax listEmp.size()" + listEmp.size());
+		System.out.println("EmpCont roller listEmpAjax listEmp.size()" + listEmp.size());
 		model.addAttribute("result", "kkk");
 		model.addAttribute("listEmp", listEmp);
 
 		return "listEmpAjaxForm";
 	}
-	
-	
 
 	@ResponseBody
 	@RequestMapping(value = "empSerializeWrite")
@@ -461,4 +459,62 @@ public class EmpController {
 
 	}
 
+// listEmpAjaxForm2
+	@RequestMapping(value = "listEmpAjaxForm2")
+	public String listEmpAjaxForm2(Model model) {
+		System.out.println("listEmpAjaxForm2 start...");
+		Emp emp = new Emp();
+		// parameter emp --> Page만 추가 Setting
+		emp.setStart(1);// 시작시 1
+		emp.setEnd(15); // 시작시 15
+		List<Emp> listEmp = es.listEmp(emp);
+		System.out.println("listEmpAjaxForm2 listEmp.size()" + listEmp.size());
+		model.addAttribute("listEmp", listEmp);
+		return "listEmpAjaxForm2";
+	}
+
+	// listEmpAjaxForm3
+	@RequestMapping(value = "listEmpAjaxForm3")
+	public String listEmpAjaxForm3(Model model) {
+		System.out.println("listEmpAjaxForm2 start...");
+		Emp emp = new Emp();
+		// parameter emp --> Page만 추가 Setting
+		emp.setStart(1);// 시작시 1
+		emp.setEnd(15); // 시작시 15
+		List<Emp> listEmp = es.listEmp(emp);
+		System.out.println("listEmpAjaxForm3 listEmp.size()" + listEmp.size());
+		model.addAttribute("listEmp", listEmp);
+		return "listEmpAjaxForm3";
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "empListUpdate")
+	public Map<String, Object> empListUpdate(@RequestBody @Valid List<Emp> listEmp) {
+		System.out.println("empListUpdate start...");
+		int updateResult = 1;
+
+		for (Emp emp : listEmp) {
+			System.out.println("EmpController empListUpdate emp->" + emp);
+			// 업데이트 로직 굳이 구현하지 않는다.
+			// int writeResult = kkk.listUpdateEmp(emp);
+
+		}
+		Map<String, Object> resultMap = new HashMap<>();
+		resultMap.put("updateResult", updateResult);
+		return resultMap;
+	}
+
+	// mybatis Transaction 처리
+	@ResponseBody
+	@RequestMapping(value = "transactionInsertUpdate")
+	public String transactionInsertUpdate(Emp emp, Model model) {
+		System.out.println("Empcontroller transactionInsertUpdate start..");
+		// member Insert 성공과 실패
+		int returnMember = es.transactionInsertUpdate();
+		System.out.println("Empcontroller transactionInsertUpdate returnMember=>" + returnMember);
+
+		String returnMemberString = String.valueOf(returnMember);
+
+		return returnMemberString;
+	}
 }

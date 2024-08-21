@@ -8,12 +8,14 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
+	
+	// listEmpAjaxForm3.jsp 에서 수정전 작업
 	function getEmpListUpdateTest() {
 		alert("getEmpListUpdateTest RUN....")
 		// group번호 가져오기
 		var arr = new Array();
 		var item;
-		// 한로우 한로우 item에 저장
+		// 한로우 한로우 item에 저장 -> 가져온것을 그대로 뽑아서 사용
 		<c:forEach items="${listEmp}" var="item">
 		arr.push({
 			empno : "${item.empno}",
@@ -30,10 +32,11 @@
 				return;
 		}
 	}
+	// listEmpAjaxForm3.jsp 에서 수정후 작업
 	//java script에서 emp list를 수정한 데이터를 json데이터로 전환 후 empController로 보내보기 위한 예제
 	function getEmpListUpdate() {
 		alert('getEmpListUpdate run...');
-		let empList = [];
+		let empList = []; // 직원 데이터를 저장할 빈 배열 생성
 		const inputs = document
 				.querySelectorAll('input[name="empno"], input[name="ename"],input[name="deptno"]');
 		for (let i = 0; i < inputs.length; i += 3) {

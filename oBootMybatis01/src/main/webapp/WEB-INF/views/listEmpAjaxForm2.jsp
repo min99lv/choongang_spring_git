@@ -28,15 +28,12 @@
 						function(){
 							str2 = "<option value='"+this.deptno+"'>"+this.dname+"</option>";
 							str += str2;
-						}
-						)
+						});
 						str += "</select><p>"
 						alert("combobox str->" +str);
 						$('#dept_list_combobox').append(str);
-					
 				}
-			}	 
-		 );
+			});
 	 }
 	 
 	 
@@ -108,9 +105,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-	RestController LISTVO3:
-	<input type="button" id="btn_Dept3" value="부서명 LIST"
-		onclick="getListDept()">
+	RestController LISTVO3: <input type="button" id="btn_Dept3" value="부서명 LIST" onclick="getListDept()">
 	<p>dept_list_str:
 	<div id="dept_list_str"></div>
 	dept_list_combobox:

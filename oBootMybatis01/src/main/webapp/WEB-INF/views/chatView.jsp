@@ -10,7 +10,6 @@
 		*{
 			margin:0;
 			padding:0;
-			background-color: silver;
 		}
 		.container{
 			width: 500px;
@@ -20,7 +19,7 @@
 		.container h1{
 			text-align: left;
 			padding: 5px 5px 5px 15px;
-			color: fuchsia;
+			color: #FFBB00;
 			border-left: 3px solid #FFBB00;
 			margin-bottom: 20px;
 		}
@@ -51,14 +50,23 @@
 	</style>
 </head>
 <script type="text/javascript">
-    // web Socket
+    // web Socket 연결
 	var ws;
-
+	
+    // 웹소켓을 열어서 서버와 클라이언트 간의 지속적으로 데이터를 주고받을 수 있다
 	function wsOpen(){
-		console.log("wsOpen  location.host: " + location.host);
-        var wsUri  = "ws://" + location.host + "${pageContext.request.contextPath}/chating";
+    	console.log("wsOpen  location.host: " + location.host);
+    	
+   
+
+        
+		// wsUri : 웹소켓 서버의 주소를 생성
+    	var wsUri  = "ws://" + location.host + "${pageContext.request.contextPath}/chating";
+    	
         // WebSocket 프로토콜을 사용하여 통신하기 위해서는 WebSocket객체를 생성. 
         // 객체는 자동으로 서버로의 연결
+        
+        // ws : 웹 소켓 연결을 설정
  		ws = new WebSocket(wsUri);
 		wsEvt();
  		

@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.web.method.HandlerMethod"/>
-    <fullyQualifiedTypeName name="java.lang.reflect.Method"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Configurable"/>
-    <fullyQualifiedTypeName name="com.oracle.oBootMybatis01.service.SampleInterceptor"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="com.oracle.oBootMybatis01.dao.Member1Dao"/>
     <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Aspect"/>
@@ -32,7 +27,6 @@
     <fullyQualifiedTypeName name="com.oracle.oBootMybatis01.service.EmpService"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
-    <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="jakarta.validation.Valid"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.oracle.oBootMybatis01.model.Emp"/>
@@ -49,9 +43,6 @@
     <fullyQualifiedTypeName name="org.springframework.web.socket.config.annotation.EnableWebSocket"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="org.springframework.web.socket.WebSocketSession"/>
-    <fullyQualifiedTypeName name="com.oracle.oBootMybatis01.handler.SocketHandler"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="lombok.extern.slf4j.Slf4j"/>
@@ -59,5 +50,14 @@
     <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
     <fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
     <fullyQualifiedTypeName name="org.json.simple.parser.ParseException"/>
+    <fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="com.oracle.wls.shaded.org.apache.xpath.WhitespaceStrippingElementMatcher"/>
+    <fullyQualifiedTypeName name="java.lang.SuppressWarnings"/>
     <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="org.springframework.web.socket.WebSocketSession"/>
+    <fullyQualifiedTypeName name="org.springframework.web.socket.TextMessage"/>
+    <fullyQualifiedTypeName name="com.oracle.oBootMybatis01.handler.SocketHandler"/>
 </qualifiedTypeNameHistroy>

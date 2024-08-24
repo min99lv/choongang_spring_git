@@ -1,8 +1,0 @@
-package com.oracle.oBootMybatis01.configuration;
-
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-public class WebMvcConfiguration implements org.springframework.web.servlet.config.annotation.WebMvcConfigurer {
-	
-}

@@ -10,15 +10,27 @@ spring:
 
   datasource:
    driver-class-name: oracle.jdbc.driver.OracleDriver
-   url: jdbc:oracle:thin:@localhost:1521/xe
+   url: jdbc:oracle:thin:@localhost:32768/xe
    username: scott
    password: tiger
   
+#gmail Trasfer
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: 
+    password: 
+    properties: 
+      mail:
+        smtp: 
+          auth: true
+          starttls.enable: true
+          
   # jpa Setting
   jpa:
    show-sql: true
    hibernate:
-    ddl-auto: update
+    ddl-auto: create
   
   # View Resolver
   mvc:
